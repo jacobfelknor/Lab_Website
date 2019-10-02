@@ -17,7 +17,7 @@
     <br>
 	<br>
 	<div class="container">
-		<form action="home.html">
+		<form action="home.html" method="get">
 			<!--
 				Todo: Create a form with the following fields:
 					1. Name Text Field
@@ -33,9 +33,97 @@
 					11. Submit Button (links to home page)
 
 			-->
-			<input type="submit" value="submit" class="btn btn-primary btn-block">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="firstName">First Name</label>
+					<input type="text" class="form-control" id="firstName" placeholder="First Name">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="firstName">Last Name</label>
+					<input type="text" class="form-control" id="lastName" placeholder="Last Name">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+				<label for="inputEmail4">Email</label>
+				<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+				</div>
+				<div class="form-group col-md-4">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" placeholder="Password">
+				</div>
+				<div class="form-group col-md-4">
+				<label for="confirm_password">Confirm Password</label>
+				<input type="password" class="form-control" id="confirm_password" placeholder="Password">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="student_status">Who Are You?</label>
+					<div class="form-check" id="student_status">
+						<input class="form-check-input" type="radio" name="student_alumn" id="student_radio" value="student">
+						<label class="form-check-label" for="student_radio">
+							Student
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="student_alumn" id="alumni_radio" value="alumni">
+						<label class="form-check-label" for="alumni_radio">
+							Alumni
+						</label>
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="undergrad">Status</label>
+					<div class="form-check" id="undergrad">
+						<input class="form-check-input" type="radio" name="student_status" id="undergrad_radio" value="undergrad" onclick="statusOptions('undergrad_options')">
+						<label class="form-check-label" for="undergrad_radio">
+							Undergrad
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="student_status" id="graduate_radio" value="graduate" onclick="statusOptions('graduate_options')">
+						<label class="form-check-label" for="graduate_radio">
+							Graduate
+						</label>
+					</div>	
+				</div>
+				<div class="form-group col-md-4" id="graduate_options" style="display: block">
+					<label for="graduate_status">Status</label>
+					<select id="graduate_status" class="form-control">
+						<option selected disabled>Choose...</option>
+						<option value="MA">MA</option>
+						<option value="MBA">MBA</option>
+						<option value="PhD">PhD</option>
+					</select>
+				</div>
+				<div class="form-group col-md-4" id="undergrad_options" style="display: none">
+					<label for="undergrad_status">Status</label>
+					<select id="undergrad_status" class="form-control">
+						<option selected disabled>Choose...</option>
+						<option value="freshman">Freshman</option>
+						<option value="sophomore">Sophomore</option>
+						<option value="junior">Junior</option>
+						<option value="senior">Senior</option>
+					</select>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Sign in</button>
 		</form>
 	</div>
+<script>
+	function statusOptions(item){
+		var grad_id = "graduate_options"
+		var undergrad_id = "undergrad_options"
+		if(item == grad_id){
+			document.getElementById(grad_id).style.display="block";
+			document.getElementById(undergrad_id).style.display="none";
+		}else if(item == undergrad_id){
+			document.getElementById(undergrad_id).style.display="block";
+			document.getElementById(grad_id).style.display="none";
+		}
+	}
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
